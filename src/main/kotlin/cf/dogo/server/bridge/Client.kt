@@ -6,7 +6,7 @@ import java.net.Socket
 import java.util.*
 import kotlin.collections.HashMap
 
-class Client constructor(ip : String, port : Int, name : String){
+open class Client constructor(ip : String, port : Int, name : String){
     private val requests = HashMap<Int, Request>()
     val name = name
 
@@ -16,10 +16,6 @@ class Client constructor(ip : String, port : Int, name : String){
     var input : Scanner? = null
     var output : PrintStream? = null
     val listener = InputListener(this)
-
-    init {
-        connect()
-    }
 
     fun connect(){
         for (i in 1..3){
