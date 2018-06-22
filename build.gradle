@@ -27,7 +27,8 @@ repositories {
 
 dependencies {
     compile 'org.json:json:20160810'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
 }
 
 compileKotlin {
@@ -45,4 +46,5 @@ compileTestKotlin {
 
 jar {
     enabled = true
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
