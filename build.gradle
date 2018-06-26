@@ -45,5 +45,5 @@ compileTestKotlin {
 
 jar {
     enabled = true
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    //from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
